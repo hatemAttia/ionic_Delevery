@@ -1,0 +1,62 @@
+<ion-content>
+  <div class="background-logo">
+    <img class="logo" style="height: 80%;" src="../../../assets/images/logo.png">
+  </div>
+  <ion-grid [formGroup]="signupForm">
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-padding ion-text-center">
+        <ion-label>Sign Up</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-top">
+      <ion-col size="6">
+        <ion-input placeholder="First Name" [(ngModel)]="data.firstName" (focusout)="validate('firstname')" formControlName="firstname"
+          class="input_form"></ion-input>
+      </ion-col>
+      <ion-col size="6">
+        <ion-input placeholder="Last Name" [(ngModel)]="data.lastName" (focusout)="validate('lastname')" formControlName="lastname"
+          class="input_form"></ion-input>
+      </ion-col>
+      <ion-row class="ion-justify-content-center">
+      </ion-row>
+      <ion-col>
+        <ion-input placeholder="email" [(ngModel)]="data.email" (focusout)="validate('email')" formControlName="email" class="input_form">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ">
+      <ion-col>
+        <ion-input placeholder="password" [(ngModel)]="data.password" (focusout)="validate('password')" formControlName="password" type="password"
+          class="input_form">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-top">
+      <ion-col>
+        <ion-button color="favorite" expand="block" (click)="submitForm()">Create an Account</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col offset="3.5" class="ion-justify-content-center">
+        <img src="../../assets/images/Fac.png" alt="">
+        <img src="../../assets/images/goo.png" alt="">
+        <img src="../../assets/images/twit.png" alt="">
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-button color="favorite" expand="block" fill="outline" (click)="navigateTo('login')"> Have an account?
+          Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-padding-top">
+      <ion-label style="color:#4d8394;">Terme Of Use</ion-label>
+      <span>
+        <ion-label style="padding: 0px 5px;" color="medium"> and </ion-label>
+      </span>
+      <ion-label style="color:#4d8394;">Privacy Policy</ion-label>
+    </ion-row>
+  </ion-grid>
+</ion-content>

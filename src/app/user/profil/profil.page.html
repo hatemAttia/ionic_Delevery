@@ -1,0 +1,56 @@
+
+
+  <ion-toolbar style="--background: black;" class="ion-text-center">
+    <ion-buttons slot="start" color="light">
+      <ion-button color="light" (click)="navigateTo('home')">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" style="margin-right:10%;">MY Account</ion-title>
+    </ion-toolbar>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center"   >
+      <ion-col  size="4" class="ion-justify-content-center">
+        <ion-avatar style="width: 100%;height: 100%;">
+          <ion-img src="assets/images/logoUser.png"></ion-img>
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-list>
+          <ion-item style="padding-bottom:2vh;" (click)="navigateTo('profil/profil-detail')">
+            <ion-label>
+              My Details
+            </ion-label>
+            <ion-icon name="person-circle-outline" color="favorite" slot="start"></ion-icon>
+            <ion-icon name="chevron-forward-circle-outline" slot="end"></ion-icon>
+          </ion-item>
+          <ion-item style="padding-bottom:2vh;" (click)="navigateTo('profil/adresses')">
+            <ion-label>
+              Delevery Addresses
+            </ion-label>
+            <ion-icon name="location-outline" color="favorite" slot="start"></ion-icon>
+            <ion-icon name="chevron-forward-circle-outline" slot="end"></ion-icon>
+          </ion-item>
+          <ion-item style="padding-bottom:2vh;">
+            <ion-label>
+              Order History
+            </ion-label>
+            <ion-icon name="earth-outline" slot="start" color="favorite"></ion-icon>
+            <ion-icon name="chevron-forward-circle-outline" slot="end"></ion-icon>
+          </ion-item>
+          <ion-item style="padding-bottom:2vh;">
+            <ion-label>
+              About US
+            </ion-label>
+            <ion-icon name="information-outline" color="favorite" slot="start"></ion-icon>
+            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

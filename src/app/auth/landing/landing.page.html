@@ -1,0 +1,82 @@
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+    <ion-button color="danger" style="background: transparent;" (click)="navigateTo('login')">
+      Log In
+    </ion-button>
+  </ion-buttons>
+
+</ion-toolbar>
+<ion-content>
+  <ion-slides>
+    <!--slide 1-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img src="assets/images/pizza.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <h3 class="title">Find food you love</h3>
+            <div>
+              <ion-label color="medium">Discover the best foods from</ion-label>  
+            </div>
+            <div>
+              <ion-label color="medium">over 100 restaurants</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <!--slide 2-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img src="assets/images/pizza.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <h3 class="title">Fast Delevery</h3>
+            <div>
+              <ion-label color="medium">Fast Delevery to home ,office</ion-label>
+            </div>
+            <div>
+              <ion-label color="medium">and whatever you are</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <!--slide 3-->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img src="assets/images/pizza.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <h3 class="title">Other Service</h3>
+            <div>
+              <ion-label color="medium">SuperMarket,medecines</ion-label>
+            </div>
+            <div>
+              <ion-label color="medium">any think you need</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="padding-top:4vh;">
+        <ion-button class="button" expand="block" (click)="navigateTo('sign-up')"> CREATE ACCOUNT</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

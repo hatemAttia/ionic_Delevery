@@ -1,20 +1,218 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
+<ion-menu side="start" menuId="custom" contentId="main" style="--max-width:50vw;--min-width:85vw">
+  <ion-header>
+    <ion-row class="ion-justify-content-center" style="background: #e4e4e4;padding-top: 5vh;">
+      <ion-col size="7">
+        <div style="background-color: #e4e4e4; height: 25vh;">
+          <img class="logo" style="height: 80%;" src="../../../assets/images/logo.png">
+        </div>
+      </ion-col>
+    </ion-row>
   </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>Restautant <span style="color: gray;">(comming soon)</span>
+        <ion-icon name="restaurant-outline" color="favorite" slot="start"></ion-icon>
+      </ion-item>
+      <ion-item>Farmacy <span style="color: gray;">(comming soon)</span>
+        <ion-icon name="medkit-outline" color="favorite" slot="start"></ion-icon>
+      </ion-item>
+      <ion-item>Super Market <span style="color: gray;">(comming soon)</span>
+        <ion-icon name="storefront-outline" color="favorite" slot="start"></ion-icon>
+      </ion-item>
+      <ion-item (click)="navigateTo('basket')">
+        <ion-icon name="cart-outline" color="favorite" slot="start"></ion-icon>
+        Basket
+      </ion-item>
+      <ion-item (click)="navigateTo('profil')">
+        <ion-icon name="person-circle-outline" color="favorite" slot="start"></ion-icon>
+        Profil
+      </ion-item>
+      <ion-item>Order History <span style="color: gray;">(comming soon)</span>
+        <ion-icon name="earth-outline" color="favorite" slot="start"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label>
+        LOG OUT
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="logOut()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-content>
+</ion-menu>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-toolbar color="dark">
+  <ion-buttons slot="start">
+    <ion-button (click)="openMenu()">
+      <ion-icon slot="start" name="menu"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="navigateTo('basket')">
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+<ion-content>
+  <div class="background-promo">
+    <ion-label class="background-promo__label">Click here</ion-label>
   </div>
+  <ion-grid>
+    <ion-row class="ion-no-padding">
+      <h4 style="font-weight: bold;">close to you</h4>
+    </ion-row>
+    <ion-row>
+      <!--*************************************************Categorie*************************************************-->
+      <ion-col>
+        <ion-card class="categorie" (click)="updateCategorie('resto')">
+          <img src="assets/images/Burger-Png.png">
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="padding: 15px;background-color: #ff751a;border-radius: 30%;"
+          (click)="updateCategorie('pharmacy')">
+          <img src="assets/images/pharmacy.png">
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="padding: 15px;background-color: #ff751a;border-radius: 30%;"
+          (click)="updateCategorie('market')">
+          <img src="assets/images/market.png">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!--*************************************************Restaurants*************************************************-->
+
+    <ion-row class="ion-no-padding" *ngIf="categorie=='resto'">
+      <h4 style="font-weight: bold;">Restaurants</h4>
+    </ion-row>
+    <div *ngFor="let resto of restoData ">
+      <ion-row *ngIf="categorie=='resto'">
+        <ion-card (click)="navigateToResto('detail-resto',resto.id)">
+          <img src={{resto.src_img}}>
+          <ion-card-content>
+            <ion-card-title>
+              {{resto.name}}
+            </ion-card-title>
+            <p>
+              {{resto.adresse}}
+            </p>
+          </ion-card-content>
+          <ion-row>
+            <ion-col ion-padding>
+              <span *ngFor='let n of ratingArray ,let i=index'>
+                <ion-icon *ngIf="i < resto.rate " style="font-size: 30px;" color="warning" name="star"></ion-icon>
+                <ion-icon *ngIf="i >= resto.rate " style="font-size: 30px;" color="warning" name='star-outline'>
+                </ion-icon>
+              </span>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-row>
+    </div>
+    <!--
+    <ion-row>
+      <ion-card>  
+        <img src="assets/images/mekla2.jpg">
+        <ion-card-content>
+          <ion-card-title>
+            Baguette & Baguette
+          </ion-card-title>
+          <p>
+            livraison 40-50 min
+          </p>
+        </ion-card-content>
+        <ion-row>
+          <ion-col ion-padding>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-row>
+
+    <ion-row>
+      <ion-card>
+        <img src="assets/images/mekla3.jpg">
+        <ion-card-content>
+          <ion-card-title>
+            Plan B
+          </ion-card-title>
+          <p>
+            livraison 40-50 min
+          </p>
+        </ion-card-content>
+        <ion-row>
+          <ion-col ion-padding>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-row>
+  -->
+    <!--*************************************************pharmacy*************************************************-->
+    <ion-row class="ion-no-padding" *ngIf="categorie=='pharmacy'">
+      <h4 style="font-weight: bold;">pharmacy</h4>
+    </ion-row>
+    <ion-row *ngIf="categorie=='pharmacy'">
+      <ion-card>
+        <img src="assets/images/medic2.jpg">
+        <ion-card-content>
+          <ion-card-title>
+            parapharmacy
+          </ion-card-title>
+          <p>
+            delevery in 40-50 min
+          </p>
+        </ion-card-content>
+        <ion-row>
+          <ion-col ion-padding>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-row>
+    <!--*************************************************market*************************************************-->
+    <ion-row class="ion-no-padding" *ngIf="categorie=='market'">
+      <h4 style="font-weight: bold;">Market</h4>
+    </ion-row>
+    <ion-row *ngIf="categorie=='market'">
+      <ion-card>
+        <img src="assets/images/market1.jpg">
+        <ion-card-content>
+          <ion-card-title>
+            super Market
+          </ion-card-title>
+          <p>
+            delevery in 40-50 min
+          </p>
+        </ion-card-content>
+        <ion-row>
+          <ion-col ion-padding>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+            <ion-icon style="font-size: 30px;" color="warning" name="star"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,32 @@
+.background-logo {
+    height: 25%;
+    margin-left: -10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 25vh;
+
+    &__logo {
+        align-self: center;
+        width: 30%;
+        height: auto;
+    }
+}
+
+.input_form {
+    background-color: #f0f0f0;
+    border-radius: 5%;
+}
+
+.button_submit {
+    --background: #ff751a;
+    --background-activated: white;
+    --color-activated: #ff751a;
+}
+
+.button_change {
+    --color: #ff751a;
+    --background-activated: #ff751a;
+    --border-color: #ff751a;
+}

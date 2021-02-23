@@ -1,0 +1,25 @@
+.background-promo {
+    height: 35%;
+    background-size: 100vw 100%;
+}
+
+.resto_flex {
+    
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+
+    &__content {
+        
+        align-self: center;
+        background: #ffffffd6;
+        height: 20vh;
+        width: 70vw;
+        margin-top: 5vh;
+    }
+}
+.button_submit {
+    --background: #f45524;
+    --background-activated: white;
+    --color-activated: white;
+}

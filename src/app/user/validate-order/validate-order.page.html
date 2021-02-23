@@ -1,0 +1,81 @@
+<ion-toolbar style="--background: black;" class="ion-text-center">
+  <ion-buttons slot="start" color="light">
+    <ion-button color="light" (click)="navigateTo('basket')">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title color="light" style="margin-right:10%;">Check Out</ion-title>
+  </ion-toolbar>
+<ion-content>
+<ion-row>
+  <ion-col size="12">
+    <ion-card>
+      <ion-item>
+        <ion-label color="favorite">Delevery address</ion-label>
+        <ion-button color="favorite" slot="end" Fill="clear">
+           change</ion-button>
+      </ion-item>
+      <ion-card-content>
+        {{_Adrreses[0]}}
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size="12">
+    <ion-card>
+      <ion-item>
+        <ion-label color="favorite">Payment Method</ion-label>
+        <ion-button color="favorite" slot="end" Fill="clear">
+          change</ion-button>
+      </ion-item>
+      <ion-card-content>
+        pay when get your order
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size="12">
+    <ion-item>
+      <ion-label>Enter Coupon</ion-label>
+      <ion-icon slot="start" color="favorite" name="card-outline"></ion-icon>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="caret-forward-outline" color="favorite"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size="12">
+    <ion-list>
+      <ion-list-header style="font-weight: bold;font-size: large;" >
+        Summary
+      </ion-list-header>
+      <ion-item lines="none">
+        <ion-label>Sub Total</ion-label>
+        <ion-buttons slot="end">
+          <ion-button>{{_Total}}</ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item>
+        <ion-label>Delevery Coast</ion-label>
+        <ion-buttons slot="end">
+          <ion-button>Free</ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </ion-col>
+</ion-row>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button color="favorite" expand="block" (click)="sendOrder()">Send Order</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
